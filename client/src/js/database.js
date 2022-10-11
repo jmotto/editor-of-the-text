@@ -22,7 +22,7 @@ export const putDb = async (content) => {
     // select the store from the transaction 
   const store = tx.objectStore('jate');
   // create a new request to update the store with a put operation to update the item with keyPath of 1
-  const request = store.put({ id: 1, value: content });
+  const request = store.put({ value: content });
    // await the request to complete
   const result = await request;
   console.log('data saved to the database', result);
