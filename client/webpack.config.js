@@ -20,19 +20,35 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Webpack Plugin',
+        title: 'JATE',
       }),
-      new MiniCssExtractPlugin(),
      // TODO: Add InjectManifest Plugin
      new InjectManifest({
-      swSrc: './src/src-sw.js',
-      swDest: 'service-worker.js',
+      swSrc: './src-sw.js',
+      swDest: 'src-sw.js',
     }), 
+      new WebpackPwaManifest({
+        
+      })
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
+            }
+          }
+        }
       ],
     },
   };
