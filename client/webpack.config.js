@@ -31,8 +31,8 @@ module.exports = () => {
       swDest: 'src-sw.js',
     }), 
       new WebpackPwaManifest({
-        // fingerprints: false,
-        // inject: true,
+        fingerprints: false,
+        inject: true,
         name: 'Just Another Text Editor',
         short_name: 'JATE',
         description: 'Editor of the text',
@@ -44,6 +44,7 @@ module.exports = () => {
           {
             src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
           },
         ],
       })
@@ -57,7 +58,7 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
