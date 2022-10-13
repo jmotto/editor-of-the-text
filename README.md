@@ -26,6 +26,9 @@ To deploy from VS Code, clone the [repo](https://github.com/jmotto/editor-of-the
 
 To use offline, click the 'install' button at the top corner of the page. 
 
+Here is a screenshot of the text editor showing IndexedDB storage.
+![Jate](./assets/images/19-Jate.png)
+
 
 ## License
 This application is licensed under [MIT]((https://opensource.org/licenses/MIT)). 
